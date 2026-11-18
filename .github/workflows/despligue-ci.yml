@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   preparar:
-    runs-on: windows-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Descargar código
@@ -27,8 +27,9 @@ jobs:
       - name: Ejecutar Script
         shell: pwsh
         run: ./desplegar.ps1 -RutaPHP 'php'
+
       - name: Guardar version preparada
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: version-preparada
           path: pruebas/index.php
